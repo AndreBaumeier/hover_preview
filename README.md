@@ -9,3 +9,8 @@ The easiest way to see it in action is to click on the demonstration link. It's 
 D6 original module development by Thinkleft, maintained by Go Chic or Go Home.  
 D7 module development by Rob Loach and Acquia.  
 D8 module development by Andre Baumeier  
+
+# Changes D8-Version
+
+Fixed for D8-Port: No image show when set Hover preview style on NO original image.  
+https://www.drupal.org/node/2271591
