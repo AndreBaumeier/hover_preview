@@ -5,7 +5,8 @@
  * Dual licensed under MIT and GPL.
  * Updated: 09/02/09
  * @author James Padolsey
- * @version 0.22
+ * @author Andre Baumeier
+ * @version 0.23
  */
 (function($){
 
@@ -24,6 +25,8 @@
                 imgCSS: {},
                 // Distance between cursor and preview:
                 distanceFromCursor: {top:10, left:10},
+                // vertical center image
+                vertical_center_image: true,
                 // Boolean, whether or not to preload images:
                 preloadImages: true,
                 // Callback: run when link is hovered: container is shown:
@@ -71,12 +74,18 @@
 
         $collection
             .mousemove(function(e){
-
+                // vertically centered or fixed position
+                if (s.vertical_center_image) {
+                    var height = $container.height();
+                    var offset_top = height / 2;
+                    offset_top = offset_top * -1; // negate offset
+                } else {
+                    offset_top = s.distanceFromCursor.top;
+                }
                 $container.css({
-                    top: e.pageY + s.distanceFromCursor.top + 'px',
+                    top: e.pageY + offset_top + 'px',
                     left: e.pageX + s.distanceFromCursor.left + 'px'
                 });
-
             })
             .hover(function(){
 
